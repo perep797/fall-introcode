@@ -1,0 +1,5 @@
+numerical_representation = ["Modern media is both discrete and continuous", "As Roland Barthes said, 'Language is, as it were, that which divides reality'."]
+modularity = [""]
+automation = [""]
+variability = [""]
+cultural_transcoding = [""]
