@@ -20,8 +20,10 @@ red_channel = img1.getchannel('R') #extracts the red channel from image 1
 green_channel = img2.getchannel('G') #extracts the green channel from image 2
 blue_channel = img3.getchannel('B') #extracts the blue channel from image 3
 
-img_shuffle = Image.merge("RGB", (red_channel, green_channel, blue_channel)) #merges all 3 images nack into a multiband image in RGB mode
-img_shuffle.save("shuffled-" + random_file1 + random_file2 + random_file3 ) #saves image with unique name based off of inputs
+img_shuffle_RGB = Image.merge("RGB", (red_channel, green_channel, blue_channel)) #merges all 3 images nack into a multiband image in RGB mode
+img_shuffle_RGB.save("shuffled-" + random_file1 + random_file2 + random_file3 ) #saves image with unique name based off of inputs
 
 #to do: have a path were you choose whether you want the images to be similar(same folder) or different (3 folders), then based on number inputted the channels will either be split into RGB or CMYK
-#have a second input that determines how rotated images are?
+
+#////TO DO////
+#print: Please enter  2 arguments: The desired level of similarity in photo inputs (a number between 1-3), and desired colormode (RGB or CMYK)
