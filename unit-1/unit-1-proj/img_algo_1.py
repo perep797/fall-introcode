@@ -1,18 +1,31 @@
+import os
 from os import listdir, path
 import random
 from PIL import Image
+import fnmatch
 #I originally wanted to use numpy to turn imgs into arrays and then switch the columns around individually (so I wouldn't manually need to make masks), but I was unable to get the library to work on my computer
 
-files = listdir("*") #directory of images to choose from (need to make something that randomly chooses one of the 3 folders)
+folder_list = [] # empty list of folders to choose from
+
+for folder in os.listdir('.'): #searches within cd
+    if fnmatch.fnmatch(folder, '*_imgs'): #checks what in cd ends in _imgs
+        folder_list.append(folder) #adds all folders ending in _imgs to list 
+
 mask_files = listdir("masks") #directory for mask types to chose from
 
-random_file1 = random.choice(files) #chooses first image 
-random_file2 = random.choice(files) #chooses second image
+random_folder1 = random.choice(folder_list) #chooses name of one random folder from list 
+random_folder2 = random.choice(folder_list) #chooses name of another random folder from list
+
+folder1_dir = listdir(random_folder1) #directory for chosen folder 1
+folder2_dir = listdir(random_folder2) #directory for chosen folder 2
+
+random_file1 = random.choice(folder1_dir) #chooses first image from random directory 1
+random_file2 = random.choice(folder2_dir) #chooses second image from random directory 2
 random_mask = random.choice(mask_files) #chooses what mask type to use
 
 #names variables and makes sure all are in RGBA so the transparency mask works
-img1 = Image.open( path.join("*", random_file1) ).convert('RGBA') 
-img2 = Image.open( path.join("*", random_file2) ).convert('RGBA')
+img1 = Image.open( path.join(random_folder1, random_file1) ).convert('RGBA') 
+img2 = Image.open( path.join(random_folder2, random_file2) ).convert('RGBA')
 mask_img = Image.open( path.join("masks", random_mask) ).convert('RGBA') #need to clean up the masks
 
 img_shred_base = Image.alpha_composite(img1, mask_img) #composites the mask onto image 1

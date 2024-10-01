@@ -7,7 +7,6 @@ files = listdir("images") #directory of images to choose from
 
 random_file1 = random.choice(files) #chooses first image 
 random_file2 = random.choice(files) #chooses second image
-random_mask = random.choice(mask_files) #chooses what mask type to use
 
 #names variables and makes sure all are in RGBA so the transparency mask works
 img1 = Image.open( path.join("images", random_file1) ).convert('RGBA') 
@@ -18,13 +17,13 @@ img2 = Image.open( path.join("images", random_file2) ).convert('RGBA')
 # mask_files = listdir("masks") #directory for mask types to chose from
 # img_shred_base = Image.alpha_composite(img1, mask_img) #composites the mask onto image 1
 # pixeldata = img_shred_base.load() #loads pixel data from composite image
+# random_mask = random.choice(mask_files) #chooses what mask type to use
 
 pixeldata = img1.load() #loads pixel data from image 1
 
 width, height = img1.size #calculates size of composite image
 # i = 0 ////need a variable that represents every 40th pixel along the x axis
-# range(i, i+40) #for all pixels in the first column of 40
-
+# range(i, i+40) #for all pixels in the first column of 40, range(i, i+40, 40) doesn't work
 
 for y in range(height):
         for x in range(width): 
