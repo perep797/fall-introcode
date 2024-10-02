@@ -41,18 +41,38 @@ if sim_lvl == 2 :
             random_file2 = random.choice(folder2_dir) 
             random_file3 = random.choice(folder2_dir) 
 
-            img1 = Image.open( path.join(random_folder1, random_file1) )
-            img2 = Image.open( path.join(random_folder2, random_file2) )
-            img3 = Image.open( path.join(random_folder2, random_file3) )
+            if random_folder1 == random_folder2:
+                    random_file2 = random.choice(folder2_dir) 
+                    random_file3 = random.choice(folder2_dir)
+
+                    img1 = Image.open( path.join(random_folder1, random_file1) )
+                    img2 = Image.open( path.join(random_folder2, random_file2) )
+                    img3 = Image.open( path.join(random_folder2, random_file3) ) 
+            else:
+                img1 = Image.open( path.join(random_folder1, random_file1) )
+                img2 = Image.open( path.join(random_folder2, random_file2) )
+                img3 = Image.open( path.join(random_folder2, random_file3) )
 #chooses images from 3 different directories
 if sim_lvl == 3 :
+            
             random_file1 = random.choice(folder1_dir) 
             random_file2 = random.choice(folder2_dir) 
             random_file3 = random.choice(folder3_dir) 
 
-            img1 = Image.open( path.join(random_folder1, random_file1) )
-            img2 = Image.open( path.join(random_folder2, random_file2) )
-            img3 = Image.open( path.join(random_folder3, random_file3) )
+            if random_folder1 == random_folder2:
+                    random_file2 = random.choice(folder2_dir) 
+                    if random_folder2 == random_folder3:
+                            random_file3 = random.choice(folder3_dir)
+                            if random_folder1 == random_folder3:
+                                random_file3 = random.choice(folder3_dir)
+                            else:
+                                img1 = Image.open( path.join(random_folder1, random_file1) )
+                                img2 = Image.open( path.join(random_folder2, random_file2) )
+                                img3 = Image.open( path.join(random_folder3, random_file3) )
+            else:
+                img1 = Image.open( path.join(random_folder1, random_file1) )
+                img2 = Image.open( path.join(random_folder2, random_file2) )
+                img3 = Image.open( path.join(random_folder3, random_file3) )
 #exits program if any other input is given
 if sim_lvl < 1 or sim_lvl > 3: 
         exit("This command requires a number between 1 and 3!") 
