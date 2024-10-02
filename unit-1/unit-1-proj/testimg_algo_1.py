@@ -25,6 +25,8 @@ width, height = img1.size #calculates size of composite image
 # i = 0 ////need a variable that represents every 40th pixel along the x axis
 # range(i, i+40) #for all pixels in the first column of 40, range(i, i+40, 40) doesn't work
 
+# shred_width = 0
+
 for y in range(height):
         for x in range(width): 
             if x%40 > 0: 
@@ -39,3 +41,7 @@ img_shred.save("shredded-" + random_file1 + random_file2 ) #saves final 'shredde
 
 #for every x value divisible by 40 in the width rage, replace the next 40 pixels with transparency
 #need a value that stores every 40th x axis pixel, then have 40 added onto
+
+#columnStart = 0
+# and then in your for loop use columnStart = columnStart + 1
+# and then when it reaches 10 or 15 or whatever width, reset it to 0
