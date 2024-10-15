@@ -37,18 +37,18 @@ for word in other_words: #for a word in the other words dictionary
 
 #Ok for some reason this loop only prints 6 words (from least to most frequent within the top 10 I think), and after that the computer gets stuck? It doesn't finish the loop and I am not sure why. I shortened the list of words to avoid but that wasn't the issue (I thought all the other words after might appear once). The counter works properly when I ask it to print i in the loop, but for some reason it just stops after 6???
 
-# ten_mostFrequent = []
-# list_count = len(ten_mostFrequent)
-# print(len(ten_mostFrequent))
-# while list_count <= 10:
-#     for word in other_words:
-#         if other_words[word] > other_words[mostFrequent]:
-#             mostFrequent = word
-#             ten_mostFrequent.append(mostFrequent)
+ten_mostFrequent = []
+list_count = len(ten_mostFrequent)
 
-# print(ten_mostFrequent)
+while list_count < 10:
+    mostFrequent = firstPair[0]
+    for word in other_words:
+        if other_words[word] > other_words[mostFrequent] and word not in ten_mostFrequent:
+            mostFrequent = word
+    ten_mostFrequent.append(mostFrequent)  
+    list_count = len(ten_mostFrequent) 
 
-#This loop just causes my computer to calculate something indefinitely, it never finishes the loop and prints. It doesn't even return an error or empty line so I can't tell what's wrong. I know that len(ten_mostFrequent) is an integer and starts off at 0, so maybe something goes wrong when things are added to the list? I am not sure....
+#NEVERMIND I FIXED IT HAHAHA. 1: I needed to reset mostFrequent back to the first key value pair in the list, because before it was still the actual most frequent word without it's value attached so the comparison stuff didn't work. 2: The list need to be appended/list_count updated outside of the inner if loop, and I needed to make sure that the same instance of the most frequent word was added over and over.  
 
-print(" \n \nThe most frequent word is:", mostFrequent, "\n \nit appears", other_words[mostFrequent], "times!!!")
+print(" \n \nThe most frequent word is:", mostFrequent, "\n \nit appears", other_words[mostFrequent], "times!!!" "The ten most frequent words are:", ten_mostFrequent)
 #result: The most frequent word is: had, it appears 31 times!!!
