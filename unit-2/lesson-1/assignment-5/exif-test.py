@@ -8,7 +8,7 @@ random_file = random.choice(files)
 img = Image.open(path.join("images", random_file))
 
 exifData = img.getexif()
-exifDict = {}
+# exifDict = {}
 
 # print(type(exifData))
 # says the above is <class 'PIL.Image.Exif'>? Not sure what that means but I was trying to figure out if its a list/object/str/int/dictionary already to see how I couldmanipulate the data?
