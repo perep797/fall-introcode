@@ -7,34 +7,36 @@ import random
 # import beautifulsoup
 from bs4 import BeautifulSoup
 
-response_1 = requests.get("https://plato.stanford.edu/archives/fall2016/entries/time/")
+response_1 = requests.get("https://genius.com/Taylor-swift-fortnight-lyrics")
 response_2 = requests.get("https://www.fmylife.com/Miscellaneous_26")
 #With most sites I get weird UnicodeEncodeErrors... :( Even on Wikipedia and Wikihow/some .edu sites
 
 # print(response.text[:500])
 
-if response_1.status_code == 200: #adding error handling so what I know what goes wrong
+if response_1.status_code == 200: #adding error handling so I know what goes wrong
    try:
       response_1_html = BeautifulSoup(response_1.text, "html.parser")
 
       response_1_text = response_1_html.get_text()
 
-      response_1_data = open('response_1.txt', 'w', encoding ='utf-8') #So the UnicodeEncodingErrors I was getting were mostly bc of the Windows Terminal having a small set of default characters it displays which kept triggering the warning (and also making empty text files), for some reason this fixes it? Perhaps bc it converts it to utf-8 before it starts writing in the file...
+      response_1_data = open('response_3.txt', 'w', encoding ='utf-8') #So the UnicodeEncodingErrors I was getting were mostly bc of the Windows Terminal having a small set of default characters it displays which kept triggering the warning (and also making empty text files), for some reason this fixes it? Perhaps bc it converts it to utf-8 before it starts writing in the file...
       response_1_data.write(response_1_text)
 
-      file_size_1 = os.path.getsize('response_1.txt')
+      file_size_1 = os.path.getsize('response_3.txt')
 
       if (file_size_1 == 0):
          print('File 1 is empty')
-         os.remove("response_1.txt") #automatically deletes file if empty
+         os.remove("response_3.txt") #automatically deletes file if empty
+         response_1_data.close()
       else:
          response_1_data.close()
 
    except UnicodeEncodeError:
           print('File 1 has weird characters')
-          os.remove("response_1.txt")
+          os.remove("response_3.txt")
+          response_1_data.close()
 else:
-   print("request_1 unsuccessful")
+   print("request_1 unsuccessful, reason:", response_1.status_code)
 
 
 if response_2.status_code == 200:
@@ -51,14 +53,16 @@ if response_2.status_code == 200:
       if (file_size_2 == 0):
        print('File 2 is empty')
        os.remove("response_2.txt")
+       response_2_data.close()
       else:
         response_2_data.close()
-        
+
    except UnicodeEncodeError:
       print('File 2 has weird characters')
       os.remove("response_2.txt")
+      response_2_data.close()
 else:
-   print("request_2 unsuccessful")
+   print("request_2 unsuccessful, reason:", response_2.status_code)
 
 # with io.open('response_1.txt', encoding = "utf8") as response_1_file: 
 #     dictionary = list(response_1_file)

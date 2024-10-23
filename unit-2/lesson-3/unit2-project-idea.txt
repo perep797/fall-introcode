@@ -1,0 +1,5 @@
+- Maybe for unit 2 I could combine formal and informal texts from online? I could compare the writing from bigger social media platforms (idk if the scraping would work on these though), and smaller ones. Or I could find older blog posts/social media and compare it to newer ones?
+    - The bigger contrast in language, the better
+    - Targeting texts that cover similar subjects but in different ways would also be a good idea to highlight differences in language usage
+- Would need to deal with targeting specific html divs (so things like timestamps could be ignored)
+- Need to deal with possible 403 status errors (maybe find a work around?)

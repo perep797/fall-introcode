@@ -23,5 +23,3 @@ print("\n\n\n")
 #Output: The 3D/4D Controversy Bibliography Academic Tools How to cite this entry. I got locked out of nowhere, in, say, 1900. He got on my couch in my dinosaur-print pyjamas. For discussion of the main topics in the same two lines over and over. The question of whether there could not be in the eye. That is, she will deny that it is always true that only present objects exist. Thus, according to this line, there are some non-present objects. It was like a badass. Is such a period, we would not believe this story. For discussion of the display toilets.
 
 #I thought it'd be funny to combine some philosophy blog post about time and more informal sounding FML posts (its some website I bookmarked a long time ago where people post stupid things that happened to them, or that they did to themselves)
-
-#Maybe for unit 2 I could combine formal and informal texts from online? I could compare the writing from bigger social media platforms (idk if the scraping would work on these though), and smaller ones. Or I could find older blog posts/social media and compare it to newer ones?
